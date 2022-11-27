@@ -247,11 +247,11 @@ function Dashboard() {
             <h2 class='row mt-5' style={{color: 'black', marginLeft: '11%'}}>Pending Queues</h2>
             <br></br>
 
-            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '10.5%', borderRadius: '10px', justifyContent: 'center', float: 'left'}}>
+            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '19%', borderRadius: '10px', justifyContent: 'center', float: 'left'}}>
                 <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px', height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Pending Appointments <br></br><h1 style={{paddingTop: '10%'}}>{data}</h1></h2></div>
             </div>
 
-            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '40%', borderRadius: '10px', justifyContent: 'center'}}>
+            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '50%', borderRadius: '10px', justifyContent: 'center'}}>
                 <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px',height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Approved Appointments <br></br><h1 style={{paddingTop: '10%'}}>{approveddata}</h1></h2></div>
             </div>
             

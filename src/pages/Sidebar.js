@@ -26,9 +26,6 @@ const Sidebar = () => {
               <NavLink exact to="/appointment" style={{fontFamily: 'Poppins', color: 'black'}}>
                 <CDBSidebarMenuItem icon="calendar">Appointments</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/profile" style={{fontFamily: 'Poppins', color: 'black'}}>
-                <CDBSidebarMenuItem icon="shopping-basket">Products</CDBSidebarMenuItem>
-              </NavLink>
               <NavLink exact to="/welcome" style={{fontFamily: 'Poppins', color: 'red'}}>
                 <CDBSidebarMenuItem icon="arrow-left">Log Out</CDBSidebarMenuItem>
               </NavLink>
