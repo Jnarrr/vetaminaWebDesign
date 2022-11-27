@@ -1,0 +1,13 @@
+.backgroundfooter{
+    position: fixed;
+    padding-top: 690px;
+}
+
+.navbar{
+    width: 100%;
+    background-color: #6DA916;
+    height: 8vh;
+    background-image: url(/public/images/logo.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+}

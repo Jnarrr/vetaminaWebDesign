@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from '../Background';
 
 function EditEmployee(props) {
 
@@ -72,6 +73,8 @@ function EditEmployee(props) {
     }
     
     return (
+        <>
+        <Background/>
         <div>
             <div className="container mt-5">
                 <div className="row justify-content-center">
@@ -116,6 +119,7 @@ function EditEmployee(props) {
                 </div>
             </div>
         </div>
+        </>
     );
 
 }

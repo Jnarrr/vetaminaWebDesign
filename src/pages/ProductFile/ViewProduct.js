@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from '../Background';
 
 
 function ViewProduct() {
@@ -71,6 +72,7 @@ function ViewProduct() {
 
     return (
         <>
+        <Background/>
         <div>
             <div className="container mt-5">
                 <div className="row">

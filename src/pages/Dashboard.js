@@ -243,7 +243,7 @@ function Dashboard() {
             <Sidebar/>
             <div style={{maxHeight: '100vh', overflow: 'auto', flexGrow: 1, overflowX: 'hidden'}}>
             <br></br>
-            <h4 style={{color: '#2B7A0B', fontStyle: 'italic', marginLeft: '1%'}}>Logged in as {user.owner_name}</h4>
+            <h3 style={{color: '#2B7A0B', marginLeft: '1%', marginRight: '50%'}}>Logged in as {user.owner_name}</h3>
             <h2 class='row mt-5' style={{color: 'black', marginLeft: '11%'}}>Pending Queues</h2>
             <br></br>
 
@@ -312,7 +312,7 @@ function Dashboard() {
                                         {service_HTMLTABLE}
                                     </tbody>
                                 </table>
-                                <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
+                                <Link to={'add-service'} className="btn btn-primary btn-sm float-end"> Add Service</Link>
 
                             </div>
                         </div>
@@ -385,8 +385,6 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-
-            <button onClick={logout} >Log Out</button>
             
         </div>
         </div>

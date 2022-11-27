@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from './Background';
+import './css/table.css';
 
 
 function AdminTable() {
@@ -118,8 +120,9 @@ function AdminTable() {
 
     return (
         <>
+        <Background/>
         <div>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -192,14 +195,12 @@ function AdminTable() {
                                         {clinic2_HTMLTABLE}
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <button onClick={logout} >Log Out</button>
+            <button onClick={logout} style={{marginLeft: '80%', marginTop: '20px'}}>Log Out</button>
         </div>
         </>
     );

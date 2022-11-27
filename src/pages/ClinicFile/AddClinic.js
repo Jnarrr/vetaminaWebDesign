@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from '../Background';
 
 function AddClinic() {
 
@@ -107,7 +108,9 @@ function AddClinic() {
 
     return (
         <>
+        <Background/>
         <div>
+            <br></br>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">

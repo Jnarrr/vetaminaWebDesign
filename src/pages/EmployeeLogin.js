@@ -79,7 +79,7 @@ const EmployeeLogin = () =>
                 margin="normal"
                 required
                 fullWidth
-                label="Username"
+                label="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 autoFocus
               />

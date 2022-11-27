@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from '../Background';
 
 
 function AddEmployee() {
@@ -48,7 +49,7 @@ function AddEmployee() {
                     employee_password: '',
                     error_list: [],
                 });
-                history.push('/sidebar');
+                history.push('/dashboard');
             }
             else if(res.data.status === 422)
             {
@@ -59,6 +60,7 @@ function AddEmployee() {
 
     return (
         <>
+        <Background/>
         <div>
             <div className="container mt-5">
                 <div className="row justify-content-center">

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import Navbar from '../Navbar';
+import Background from '../Background';
 
 function AddVet() {
 
@@ -59,9 +59,9 @@ function AddVet() {
 
     return (
         <>
-        <Navbar />
+        <Background/>
         <div>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">

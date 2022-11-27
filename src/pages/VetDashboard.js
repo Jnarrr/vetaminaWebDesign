@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from './Background';
 
 function VetDashboard() {
 
@@ -202,10 +203,11 @@ function VetDashboard() {
 
     return (
         <>
+        <Background/>
         <div>
-            
             <div className="container">
-                <h2>Hello {user.vet_name}</h2>
+                <h2 style={{color: '#2B7A0B', marginLeft: '1%', paddingTop: '3%'}}>Veterinarian logged in as {user.vet_name}</h2>
+                <br></br>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -237,7 +239,7 @@ function VetDashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -269,7 +271,7 @@ function VetDashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -304,7 +306,7 @@ function VetDashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -336,9 +338,7 @@ function VetDashboard() {
                     </div>
                 </div>
             </div>
-
-            <button onClick={logout} >Log Out</button>
-            
+            <button onClick={logout} style={{marginLeft: '80%', marginTop: '20px'}}>Log Out</button>   
         </div>
         </>
     );

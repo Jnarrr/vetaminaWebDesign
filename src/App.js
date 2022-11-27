@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="App">
         <Router exact path="/">
-          <Redirect to="/background" />
+          <Redirect to="/welcome" />
           <Switch>
             
             <Route path="/sidebar" component={Sidebar} />
