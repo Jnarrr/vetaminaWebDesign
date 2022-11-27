@@ -1,7 +1,17 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React , {useState}from 'react';
+import {useHistory, Link} from 'react-router-dom';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import swal from 'sweetalert';
+
+
 
 function ClinicRegister() {
 
@@ -16,6 +26,8 @@ function ClinicRegister() {
     const [email, setEmail] = useState('');
     const [permit, setPermit] = useState('');
     const [verified, setVerified] = useState('false');
+
+    const theme = createTheme();
 
     const saveClinic = (e) => {
         e.persist();
@@ -55,79 +67,130 @@ function ClinicRegister() {
         });
     }
 
-    return (
-        <>
-        <div>
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-6">
-                        <div className="card">
-                            <div className="card-header">
-                                <h4>Register Clinic</h4>
-                            </div>
-                            <div className="card-body">
-                                
-                                <form onSubmit={saveClinic} >
-                                    <div className="form-group mb-3">
-                                        <label>Username</label>
-                                        <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.username}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Password</label>
-                                        <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.password}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Registration Number</label>
-                                        <input type="text" name="registration_number" onChange={(e) => setRegistration_number(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.registration_number}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Owner Name</label>
-                                        <input type="text" name="owner_name" onChange={(e) => setOwner_name(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.owner_name}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Clinic Name</label>
-                                        <input type="text" name="clinic_name" onChange={(e) => setClinic_name(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.clinic_name}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Phone Number</label>
-                                        <input type="text" name="phone_number" onChange={(e) => setPhone_number(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.phone_number}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Clinic Address</label>
-                                        <input type="text" name="address" onChange={(e) => setAddress(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.address}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Clinic Email</label>
-                                        <input type="text" name="email" onChange={(e) => setEmail(e.target.value)} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.email}</span>*/}
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label>Permit</label>
-                                        <input type="file" name="permit" onChange={(e) => setPermit(e.target.files[0])} className="form-control" />
-                                        {/*<span className="text-danger">{clinicInput.error_list.permit}</span>*/}
-                                    </div>
-
-                                    <div className="form-group mb-3">
-                                        <button type="submit" className="btn btn-primary">Save Clinic</button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </>
-    );
-
-}
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(../images/employee.jpg)',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '10%'
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <div style={{marginBottom: '-20px'}}></div>
+            <img src="./images/logo.png" alt="" style={{width: 200}}/>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+              Register Clinic
+            </Typography>
+            <Box component="form" noValidate onSubmit={saveClinic} sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Username"
+                onChange={(e) => setUsername(e.target.value)}
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Registration Number"
+                onChange={(e) => setRegistration_number(e.target.value)}
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Owner Name"
+                onChange={(e) => setOwner_name(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Clinic Name"
+                onChange={(e) => setClinic_name(e.target.value)}
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Phone Number"
+                onChange={(e) => setPhone_number(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Clinic Address"
+                onChange={(e) => setAddress(e.target.value)}
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Clinic Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                type="file"
+                required
+                fullWidth
+                label="Permit"
+                onChange={(e) => setPermit(e.target.files[0])}
+              />
+              <Button
+                type='submit'
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Register Clinic
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Link to ="/welcome" variant="body2">
+                    {"Back"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
+};
 
 export default ClinicRegister;

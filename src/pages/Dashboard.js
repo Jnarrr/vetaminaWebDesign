@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import './css/table.css';
+
 
 function Dashboard() {
 
@@ -237,22 +239,28 @@ function Dashboard() {
     }
 
     return (
-        <>
-        <Navbar />
-        <div>
-            <div className="container">
-                <h2>Pending Appointments {data}</h2>
-                <h2>Approved Appointments {approveddata}</h2>
+        <div style={{display: 'flex'}}>
+            <Sidebar/>
+            <div style={{maxHeight: '100vh', overflow: 'auto', flexGrow: 1, overflowX: 'hidden'}}>
+            <br></br>
+            <h4 style={{color: '#2B7A0B', fontStyle: 'italic', marginLeft: '1%'}}>Logged in as {user.owner_name}</h4>
+            <h2 class='row mt-5' style={{color: 'black', marginLeft: '11%'}}>Pending Queues</h2>
+            <br></br>
+
+            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '10.5%', borderRadius: '10px', justifyContent: 'center', float: 'left'}}>
+                <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px', height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Pending Appointments <br></br><h1 style={{paddingTop: '10%'}}>{data}</h1></h2></div>
+            </div>
+
+            <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '40%', borderRadius: '10px', justifyContent: 'center'}}>
+                <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px',height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Approved Appointments <br></br><h1 style={{paddingTop: '10%'}}>{approveddata}</h1></h2></div>
             </div>
             
-            <div className="container">
-                <h2>Hello {user.owner_name}</h2>
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
                                 <h4>Products Data
-                                    <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
                                 </h4>
                             </div>
                             <div className="card-body">
@@ -271,6 +279,7 @@ function Dashboard() {
                                         {product_HTMLTABLE}
                                     </tbody>
                                 </table>
+                                <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
 
                             </div>
                         </div>
@@ -278,13 +287,13 @@ function Dashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
                                 <h4>Services Data
-                                    <Link to={'add-service'} className="btn btn-primary btn-sm float-end"> Add Service</Link>
+                                    
                                 </h4>
                             </div>
                             <div className="card-body">
@@ -303,6 +312,7 @@ function Dashboard() {
                                         {service_HTMLTABLE}
                                     </tbody>
                                 </table>
+                                <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
 
                             </div>
                         </div>
@@ -310,13 +320,13 @@ function Dashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
                                 <h4>Employees Data
-                                    <Link to={'add-employee'} className="btn btn-primary btn-sm float-end"> Add Employee</Link>
+                                    
                                 </h4>
                             </div>
                             <div className="card-body">
@@ -335,6 +345,7 @@ function Dashboard() {
                                         {employee_HTMLTABLE}
                                     </tbody>
                                 </table>
+                                <Link to={'add-employee'} className="btn btn-primary btn-sm float-end"> Add Employee</Link>
 
                             </div>
                         </div>
@@ -342,13 +353,13 @@ function Dashboard() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
                                 <h4>Veterinaries Data
-                                    <Link to={'add-vet'} className="btn btn-primary btn-sm float-end"> Add Vet</Link>
+                                    
                                 </h4>
                             </div>
                             <div className="card-body">
@@ -367,6 +378,7 @@ function Dashboard() {
                                         {veterinaries_HTMLTABLE}
                                     </tbody>
                                 </table>
+                                <Link to={'add-vet'} className="btn btn-primary btn-sm float-end"> Add Vet</Link>
 
                             </div>
                         </div>
@@ -377,7 +389,7 @@ function Dashboard() {
             <button onClick={logout} >Log Out</button>
             
         </div>
-        </>
+        </div>
     );
 
 }

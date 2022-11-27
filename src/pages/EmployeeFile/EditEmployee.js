@@ -23,7 +23,7 @@ function EditEmployee(props) {
             else if(res.data.status === 404)
             {
                 swal("Error",res.data.message,"error");
-                history.push('/dashboard');
+                history.push('/sidebar');
             }
         });
 
@@ -73,7 +73,7 @@ function EditEmployee(props) {
     
     return (
         <div>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">

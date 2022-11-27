@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+
 
 function ViewAppointment() {
 
@@ -181,10 +182,10 @@ function ViewAppointment() {
     }
 
     return (
-        <>
-        <Navbar />
-        <div>
-            <div className="container">
+        <div style={{display: 'flex'}}>
+            <Sidebar/>
+            <div style={{maxHeight: '100vh', overflow: 'auto', flexGrow: 1, overflowX: 'hidden'}}>
+            <div className="container" style={{paddingTop: '10%'}}>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -215,7 +216,7 @@ function ViewAppointment() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -250,7 +251,7 @@ function ViewAppointment() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -282,9 +283,8 @@ function ViewAppointment() {
                     </div>
                 </div>
             </div>
-
         </div>
-        </>
+        </div>
     );
 
 }

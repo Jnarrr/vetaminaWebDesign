@@ -3,6 +3,7 @@ import {useHistory, Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 
+
 function AdminTable() {
 
     const [loading, setLoading] = useState(true);

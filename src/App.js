@@ -39,6 +39,7 @@ import AddMedicalRecord from './pages/AddMedicalRecord';
 import EditMedicalRecord from './pages/EditMedicalRecord';
 import AddMedicalRecordVet from './pages/AddMedicalRecordVet';
 
+import Sidebar from './pages/Sidebar';
 
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -49,6 +50,8 @@ function App() {
         <Router exact path="/">
           <Redirect to="/welcome" />
           <Switch>
+            
+            <Route path="/sidebar" component={Sidebar} />
 
             <Route path="/welcome" component={Welcome} />
             <Route path="/dashboard" component={Dashboard} />

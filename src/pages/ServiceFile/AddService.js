@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import Navbar from '../Navbar';
 
 function AddService() {
 
@@ -45,7 +44,7 @@ function AddService() {
                     service_description: '',
                     error_list: [],
                 });
-                history.push('/dashboard');
+                history.push('/sidebar');
             }
             else if(res.data.status === 422)
             {
@@ -56,9 +55,8 @@ function AddService() {
 
     return (
         <>
-        <Navbar />
         <div>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">
