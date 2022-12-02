@@ -81,7 +81,7 @@ function EditVet(props) {
                     <div className="col-md-6">
                         <div className="card">
                             <div className="card-header">
-                                <h4>Edit Vets 
+                                <h4>Edit Vetirinarian 
                                     <button className='btn btn-danger btn-sm float-end' onClick={() => history.goBack()}>Back</button>
                                 </h4>
                             </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Welcome/Footer';
-import { NavBar } from './Welcome/Navbar';
 import './css/welcome.css';
 import {Container, Row, Col } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';

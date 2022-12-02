@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Background from '../Background';
 
 function EditClinic(props) {
 
@@ -79,7 +80,8 @@ function EditClinic(props) {
     
     return (
         <div>
-            <div className="container">
+            <Background/>
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">

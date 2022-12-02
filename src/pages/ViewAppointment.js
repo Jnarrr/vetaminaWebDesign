@@ -75,12 +75,13 @@ function ViewAppointment() {
     }
 
     async function search(key) {
+        let user = JSON.parse(localStorage.getItem('user-info'));
         console.warn(key)
-        let result = await fetch("http://localhost:8000/api/search/"+key);
+        let result = await fetch(`http://localhost:8000/api/search/${key}/${user.id}`);
         console.log(result);
         result = await result.json();
         global.key = key;
-    
+
         var medicalrecords_HTMLTABLE = result.map((item, index) => {
           return (
             <tr key={index}>

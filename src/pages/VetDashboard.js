@@ -92,7 +92,7 @@ function VetDashboard() {
 
     async function search(key) {
         console.warn(key)
-        let result = await fetch("http://localhost:8000/api/search/"+key);
+        let result = await fetch(`http://localhost:8000/api/search/${key}/${user.clinic_id}`);
         console.log(result);
         result = await result.json();
         global.key = key;
@@ -252,7 +252,7 @@ function VetDashboard() {
                                     <thead>
                                         <tr>
                                             <th>Pet ID</th>
-                                            <th>User ID</th>
+                                            <th>Customer ID</th>
                                             <th>Procedures</th>
                                             <th>Date</th>
                                             <th>Time</th>
@@ -311,7 +311,7 @@ function VetDashboard() {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4>Search User
+                                <h4>Search Customer
                                 <div className="col-sm offset-sm">
                                     <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search User ID" />
                                 </div>
@@ -322,7 +322,7 @@ function VetDashboard() {
                                 <table className="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>User ID</th>
+                                            <th>Customer ID</th>
                                             <th>Username</th>
                                             <th>Email</th>
                                             <th>Mobile Number</th>
