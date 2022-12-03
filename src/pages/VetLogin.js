@@ -70,7 +70,7 @@ const VetLogin = () =>
           >
             <div style={{marginTop: '33%'}}></div>
             <img src="./images/logo.png" alt="" style={{width: 200}}/>
-            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'} color="black">
               Veterinarian Login
             </Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}>

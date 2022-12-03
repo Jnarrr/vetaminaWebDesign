@@ -55,7 +55,7 @@ const ClinicLogin = () =>
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(../images/owner.jpg)',
+            backgroundImage: 'url(../images/clinic.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -74,10 +74,10 @@ const ClinicLogin = () =>
           >
             <div style={{marginTop: '33%'}}></div>
             <img src="./images/logo.png" alt="" style={{width: 200}}/>
-            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'} color="black">
               Clinic Login
             </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }} >
               <TextField
                 margin="normal"
                 required

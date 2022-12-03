@@ -200,7 +200,7 @@ function AdminTable() {
                     </div>
                 </div>
             </div>
-            <button onClick={logout} style={{marginLeft: '80%', marginTop: '20px'}}>Log Out</button>
+            <button className="bts" onClick={logout} style={{marginLeft: '80%', marginTop: '20px'}}>Log Out</button>
         </div>
         </>
     );

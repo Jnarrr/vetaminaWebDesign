@@ -39,7 +39,7 @@ const AdminLogin = () =>
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(../images/admin3.jpg)',
+            backgroundImage: 'url(../images/ADMIN.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -58,7 +58,7 @@ const AdminLogin = () =>
           >
             <div style={{marginTop: '33%'}}></div>
             <img src="./images/logo.png" alt="" style={{width: 200}}/>
-            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'} color="black">
               Admin Login
             </Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}>

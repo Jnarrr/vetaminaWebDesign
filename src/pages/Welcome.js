@@ -27,11 +27,11 @@ function Welcome() {
                         clinic making the work efficient and convenient for the veterinary employees, pet owners, and clients which will make the system 
                         consumer-centric thus, it will be simplified as it is simple to understand without a deep background knowledge to use the system</p>
                   
-                  <button className='bts'><Link to ="/AdminLogin">{"Admin"}</Link></button>
-                  <button className='bts'><Link to ="/ClinicLogin">{"Clinic"}</Link></button>
-                  <button className='bts'><Link to ="/VetLogin">{"Veterinarian"}</Link></button>
-                  <button className='bts'><Link to ="/EmployeeLogin">{"Employee"}</Link></button>
-                  <button className='bts'><Link to ="/ClinicRegister">{"Register Clinic"}</Link></button>
+                  <Link to ="/AdminLogin"><button className='bts'>Admin</button></Link>
+                  <Link to ="/ClinicLogin"><button className='bts'>Clinic</button></Link>
+                  <Link to ="/VetLogin"><button className='bts'>Veterinarian</button></Link>
+                  <Link to ="/EmployeeLogin"><button className='bts'>Employee</button></Link>
+                  <Link to ="/ClinicRegister"><button className='bts'>Register Clinic</button></Link>
                  
                  
                   

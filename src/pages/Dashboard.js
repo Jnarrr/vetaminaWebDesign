@@ -9,8 +9,6 @@ import './css/table.css';
 function Dashboard() {
 
     const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([]);
-    const [services, setServices] = useState([]);
     const [employees, setEmployees] = useState([]);
     const [veterinaries, setVeterinaries] = useState([]);
     const history = useHistory();
@@ -26,22 +24,6 @@ function Dashboard() {
     }
 
     useEffect(() => {
-
-        axios.get(`/api/products/${user.id}`).then(res=>{
-            if(res.status === 200)
-            {
-                setProducts(res.data.products)
-                setLoading(false);
-            }
-        });
-
-        axios.get(`/api/services/${user.id}`).then(res=>{
-            if(res.status === 200)
-            {
-                setServices(res.data.services)
-                setLoading(false);
-            }
-        });
 
         axios.get(`/api/employees/${user.id}`).then(res=>{
             if(res.status === 200)
@@ -75,45 +57,6 @@ function Dashboard() {
 
     }, [user.id]);
 
-    const deleteProduct = (e, id) => {
-        e.preventDefault();
-        
-        const thisClicked = e.currentTarget;
-        thisClicked.innerText = "Deleting";
-
-        axios.delete(`/api/delete-product/${id}`).then(res=>{
-            if(res.data.status === 200)
-            {
-                swal("Deleted!",res.data.message,"success");
-                thisClicked.closest("tr").remove();
-            }
-            else if(res.data.status === 404)
-            {
-                swal("Error",res.data.message,"error");
-                thisClicked.innerText = "Delete";
-            }
-        });
-    }
-
-    const deleteService = (e, id) => {
-        e.preventDefault();
-        
-        const thisClicked = e.currentTarget;
-        thisClicked.innerText = "Deleting";
-
-        axios.delete(`/api/delete-service/${id}`).then(res=>{
-            if(res.data.status === 200)
-            {
-                swal("Deleted!",res.data.message,"success");
-                thisClicked.closest("tr").remove();
-            }
-            else if(res.data.status === 404)
-            {
-                swal("Error",res.data.message,"error");
-                thisClicked.innerText = "Delete";
-            }
-        });
-    }
 
     const deleteEmployee = (e, id) => {
         e.preventDefault();
@@ -160,43 +103,6 @@ function Dashboard() {
     }
     else
     {
-        var product_HTMLTABLE = "";
-       
-        product_HTMLTABLE = products.map( (item, index) => {
-            return (
-                
-                <tr key={index}>
-                    <td>{item.product_name}</td>
-                    <td>{item.product_price}</td>
-                    <td>{item.product_description}</td>
-                    <td>
-                        <Link to={`edit-product/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
-                    </td>
-                    <td>
-                        <button type="button" onClick={(e) => deleteProduct(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            );
-        });
-
-        var service_HTMLTABLE = "";
-       
-        service_HTMLTABLE = services.map( (item, index) => {
-            return (
-                
-                <tr key={index}>
-                    <td>{item.service_name}</td>
-                    <td>{item.service_price}</td>
-                    <td>{item.service_description}</td>
-                    <td>
-                        <Link to={`edit-service/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
-                    </td>
-                    <td>
-                        <button type="button" onClick={(e) => deleteService(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            );
-        });
 
         var employee_HTMLTABLE = "";
        
@@ -253,71 +159,6 @@ function Dashboard() {
 
             <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '50%', borderRadius: '10px', justifyContent: 'center'}}>
                 <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px',height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Approved Appointments <br></br><h1 style={{paddingTop: '10%'}}>{approveddata}</h1></h2></div>
-            </div>
-            
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="card-header">
-                                <h4>Products Data
-                                </h4>
-                            </div>
-                            <div className="card-body">
-                                
-                                <table className="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {product_HTMLTABLE}
-                                    </tbody>
-                                </table>
-                                <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="card-header">
-                                <h4>Services Data
-                                    
-                                </h4>
-                            </div>
-                            <div className="card-body">
-                                
-                                <table className="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {service_HTMLTABLE}
-                                    </tbody>
-                                </table>
-                                <Link to={'add-service'} className="btn btn-primary btn-sm float-end"> Add Service</Link>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div className="container mt-5">
@@ -379,13 +220,12 @@ function Dashboard() {
                                     </tbody>
                                 </table>
                                 <Link to={'add-vet'} className="btn btn-primary btn-sm float-end"> Add Vet</Link>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+            <br></br>
         </div>
         </div>
     );

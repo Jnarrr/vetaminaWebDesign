@@ -199,7 +199,7 @@ function ViewAppointment() {
                                     <thead>
                                         <tr>
                                             <th>Pet ID</th>
-                                            <th>User ID</th>
+                                            <th>Customer ID</th>
                                             <th>Procedures</th>
                                             <th>Date</th>
                                             <th>Time</th>
@@ -259,7 +259,7 @@ function ViewAppointment() {
                             <div className="card-header">
                                 <h4>Search User
                                 <div className="col-sm offset-sm">
-                                    <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search User ID" />
+                                    <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search Customer ID"/>
                                 </div>
                                 </h4>
                             </div>
@@ -268,7 +268,7 @@ function ViewAppointment() {
                                 <table className="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>User ID</th>
+                                            <th>Customer ID</th>
                                             <th>Username</th>
                                             <th>Email</th>
                                             <th>Mobile Number</th>

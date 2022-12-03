@@ -52,7 +52,7 @@ const EmployeeLogin = () =>
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(../images/employee.jpg)',
+            backgroundImage: 'url(../images/employee2.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -71,7 +71,7 @@ const EmployeeLogin = () =>
           >
             <div style={{marginTop: '33%'}}></div>
             <img src="./images/logo.png" alt="" style={{width: 200}}/>
-            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'} color="black">
               Employee Login
             </Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}>

@@ -77,11 +77,11 @@ function ClinicRegister() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(../images/employee.jpg)',
+            backgroundImage: 'url(../images/reg.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            width: '10%'
+            
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -96,7 +96,7 @@ function ClinicRegister() {
           >
             <div style={{marginBottom: '-20px'}}></div>
             <img src="./images/logo.png" alt="" style={{width: 200}}/>
-            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'}>
+            <Typography component="h1" variant="h5" fontFamily={'Poppins, sans serif'} color="black">
               Register Clinic
             </Typography>
             <Box component="form" noValidate onSubmit={saveClinic} sx={{ mt: 1 }}>

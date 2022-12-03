@@ -211,7 +211,7 @@ function VetDashboard() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-header" style={{backgroundColor: '#ee760b'}}>
                                 <h4>Products Data
                                     <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
                                 </h4>
@@ -243,7 +243,7 @@ function VetDashboard() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-header" style={{backgroundColor: '#ee760b'}}>
                                 <h4>Appointments Data</h4>
                             </div>
                             <div className="card-body">
@@ -275,7 +275,7 @@ function VetDashboard() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-header" style={{backgroundColor: '#ee760b'}}>
                                 <h4>Medical Records
                                 <Link to={`add-medicalrecordVet`} className="btn btn-primary btn-sm float-end"> Add Medical Record </Link>
                                 <div className="col-sm offset-sm">
@@ -338,8 +338,10 @@ function VetDashboard() {
                     </div>
                 </div>
             </div>
-            <button onClick={logout} style={{marginLeft: '80%', marginTop: '20px'}}>Log Out</button>   
+            <button className="bts" onClick={logout} style={{ marginTop: '20px'}}>Log Out</button>   
         </div>
+        <br></br>
+        <br></br>
         </>
     );
 

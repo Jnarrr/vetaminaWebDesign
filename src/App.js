@@ -41,6 +41,8 @@ import AddMedicalRecordVet from './pages/AddMedicalRecordVet';
 
 import Sidebar from './pages/Sidebar';
 import Background from './pages/Background';
+import ProductsData from './pages/ProductsData';
+import ServicesData from './pages/ServicesData';
 
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -51,7 +53,9 @@ function App() {
         <Router exact path="/">
           <Redirect to="/welcome" />
           <Switch>
-            
+
+            <Route path="/servicesdata" component={ServicesData} />
+            <Route path="/productsdata" component={ProductsData} />
             <Route path="/sidebar" component={Sidebar} />
             <Route path="/background" component={Background} />
 
