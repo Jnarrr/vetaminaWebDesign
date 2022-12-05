@@ -8,7 +8,7 @@ function AddMedicalRecordVet() {
     let pet_id = global.key;
     let user = JSON.parse(localStorage.getItem('user-info'))
     let veterinary = user.vet_name;
-    let clinic_id = global.clinic_id;
+    let clinic_id = user.clinic_id;
     
     const history = useHistory();
     const [medicalrecordInput, setMedicalRecord] = useState({
