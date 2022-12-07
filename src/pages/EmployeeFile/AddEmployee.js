@@ -86,7 +86,7 @@ function AddEmployee() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Employee Phone Number</label>
-                                        <input type="text" name="employee_phone_number" onChange={handleInput} value={employeeInput.employee_phone_number}  className="form-control" />
+                                        <input type="number" name="employee_phone_number" onChange={handleInput} value={employeeInput.employee_phone_number}  className="form-control" />
                                         <span className="text-danger">{employeeInput.error_list.employee_phone_number}</span>
                                     </div>
                                     <div className="form-group mb-3">

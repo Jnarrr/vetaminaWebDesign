@@ -4,6 +4,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import Sidebar from './Sidebar';
 import './css/table.css';
+import { BarChart, PieChart, BarSeries, PieArcSeries } from 'reaviz';
 
 
 function Dashboard() {
@@ -11,6 +12,10 @@ function Dashboard() {
     const [loading, setLoading] = useState(true);
     const [employees, setEmployees] = useState([]);
     const [veterinaries, setVeterinaries] = useState([]);
+    const [allappointment, setAllTypesAppointments] = useState([]);
+    const [monthappointments, setMonthAppointments] = useState([]);
+    const [allmedicalrecord, setAllMedicalRecords] = useState([]);
+    const [monthmedicalrecords, setMonthMedicalRecords] = useState([]);
     const history = useHistory();
     let user = JSON.parse(localStorage.getItem('user-info'))
 
@@ -52,6 +57,40 @@ function Dashboard() {
             if(response.status === 200)
             {
                 setApprovedData(response.data.appointmentsCount)
+            }
+        });
+
+        axios.get(`/api/appointmentServiceCount/${user.id}`).then(res=>{
+            if(res.status === 200)
+            {
+                setAllTypesAppointments(res.data.typesOfAppointment)
+                setLoading(false);
+            }
+        });
+
+        axios.get(`/api/appointmentCurrentMonthCount/${user.id}`).then(res=>{
+            if(res.status === 200)
+            {
+                setMonthAppointments(res.data.appointmentCurrentMonthCount)
+                setLoading(false);
+            }
+        });
+
+        
+
+        axios.get(`/api/medicalReport/${user.id}`).then(res=>{
+            if(res.status === 200)
+            {
+                setAllMedicalRecords(res.data.allMedicalRecordsCount)
+                setLoading(false);
+            }
+        });
+
+        axios.get(`/api/medicalrecordCurrentMonthCount/${user.id}`).then(res=>{
+            if(res.status === 200)
+            {
+                setMonthMedicalRecords(res.data.medicalrecordCurrentMonthCount)
+                setLoading(false);
             }
         });
 
@@ -144,6 +183,21 @@ function Dashboard() {
 
     }
 
+    const barChartData = [
+        { key: 'Parvo', data: allmedicalrecord[0] },
+        { key: 'Parasite', data: allmedicalrecord[1] },
+        { key: 'Rabies', data: allmedicalrecord[2] },
+        { key: 'others', data: monthmedicalrecords - (allmedicalrecord[0]+allmedicalrecord[1]+allmedicalrecord[2]) },
+    ];
+
+    const pieChartData = [
+        { key: 'Vaccine', data: allappointment[0] },
+        { key: 'Grooming', data: allappointment[1] },
+        { key: 'Surgery', data: allappointment[2] },
+        { key: 'Checkup', data: allappointment[3] },
+        { key: 'Others', data: monthappointments - (allappointment[0]+allappointment[1]+allappointment[2]+allappointment[3]) },
+    ]
+
     return (
         <div style={{display: 'flex'}}>
             <Sidebar/>
@@ -160,6 +214,39 @@ function Dashboard() {
             <div class='row' style={{alignItems: 'center', width:'25%', marginLeft: '50%', borderRadius: '10px', justifyContent: 'center'}}>
                 <div class='col' style={{textAlign: 'center', backgroundColor: '#6DA916', borderRadius: '10px',height: '200px'}}><h2 style={{color: 'white', paddingTop: '10%'}}>Approved Appointments <br></br><h1 style={{paddingTop: '10%'}}>{approveddata}</h1></h2></div>
             </div>
+
+            
+            <div class="container" style = {{ alignSelf: 'center', marginTop: '30px' }}>
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                        <h4 style = {{ color: 'black' }}>Number of Solved Medical Cases for this Month</h4>
+                        <BarChart 
+                        width={650} 
+                        height={250} 
+                        data={barChartData} 
+                        series = {
+                            <BarSeries
+                            colorScheme='lime'
+                            />
+                        }
+                        />
+                    </div>
+                    <div class="col-4">
+                        <h4 style = {{ color: 'black' }}>Number of Type of Appointments for this Month</h4>
+                        <PieChart 
+                        width={300} 
+                        height={300} 
+                        data={pieChartData} 
+                        series = {
+                            <PieArcSeries
+                            colorScheme='RdYlGn'
+                            />
+                        }
+                        />
+                    </div>
+                </div>
+            </div>
+            
 
             <div className="container mt-5">
                 <div className="row">

@@ -77,7 +77,7 @@ function AddService() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Service Price</label>
-                                        <input type="text" name="service_price" onChange={handleInput} value={serviceInput.service_price}  className="form-control" />
+                                        <input type="number" name="service_price" onChange={handleInput} value={serviceInput.service_price}  className="form-control" />
                                         <span className="text-danger">{serviceInput.error_list.service_price}</span>
                                     </div>
                                     <div className="form-group mb-3">

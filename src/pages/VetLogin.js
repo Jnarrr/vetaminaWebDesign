@@ -35,7 +35,8 @@ const VetLogin = () =>
         result = await result.json();
         localStorage.setItem("user-info",JSON.stringify(result));
         if("error" in result){
-          alert("error message");
+          // change the error message to Username or Password is not matched
+          alert("Username or Password is not matched");
         }else{
           history.push("/vetdashboard");
         }

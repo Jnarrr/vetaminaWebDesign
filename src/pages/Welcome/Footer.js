@@ -27,7 +27,7 @@ function Footer() {
           <a><img src="./images/nav-Icon3.png" alt="" className="icon1" /></a>
             <h4 className="easy">Easy Communication</h4>
             <ui className="list-unstyled">
-              <li className="easy2">Message available clinics</li>
+              <li className="easy2">Talk to them using their contact information</li>
             </ui>
           </div>
         </div>

@@ -71,7 +71,6 @@ function AdminTable() {
             return (
                 
                 <tr key={index}>
-                    <td>{item.id}</td>
                     <td>{item.username}</td>
                     <td>{item.registration_number}</td>
                     <td>{item.owner_name}</td>
@@ -80,7 +79,6 @@ function AdminTable() {
                     <td>{item.address}</td>
                     <td>{item.email}</td>
                     <td><img src={ "http://localhost:8000/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
-                    <td>{item.verified}</td>
                     <td>
                         <Link to={`edit-clinic/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>
@@ -97,7 +95,6 @@ function AdminTable() {
             return (
                 
                 <tr key={index}>
-                    <td>{item.id}</td>
                     <td>{item.username}</td>
                     <td>{item.registration_number}</td>
                     <td>{item.owner_name}</td>
@@ -106,7 +103,6 @@ function AdminTable() {
                     <td>{item.address}</td>
                     <td>{item.email}</td>
                     <td><img src={ "http://localhost:8000/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
-                    <td>{item.verified}</td>
                     <td>
                         <Link to={`edit-clinic/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>
@@ -136,7 +132,6 @@ function AdminTable() {
                                 <table className="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Username</th>
                                             <th>Registration #</th>
                                             <th>Owner Name</th>
@@ -145,7 +140,6 @@ function AdminTable() {
                                             <th>Address</th>
                                             <th>Email</th>
                                             <th>Permit</th>
-                                            <th>Verified</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -177,7 +171,6 @@ function AdminTable() {
                                 <table className="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Username</th>
                                             <th>Registration #</th>
                                             <th>Owner Name</th>
@@ -186,7 +179,6 @@ function AdminTable() {
                                             <th>Address</th>
                                             <th>Email</th>
                                             <th>Permit</th>
-                                            <th>Verified</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>

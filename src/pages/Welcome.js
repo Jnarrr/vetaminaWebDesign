@@ -16,10 +16,10 @@ function Welcome() {
         <Row className="aligh-items-center">
          
           <Col xs={12} md={6} xl={7}>
+            <img src="./images/heartLogo.png" alt="" style = {{width: '100px', height: '100px', marginLeft: '-30px'}}/>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to Vetamina</span>
                 <h1>"TREATING YOUR PETS,</h1>
                 <h2>LIKE OUR PETS"</h2>
                   <p>Vetamina is known as a tool that the employee of the organization utilizes in order to achieve the objectives based on their services.</p>
@@ -42,7 +42,7 @@ function Welcome() {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src="./images/banner.png" alt="" />
+                  <img src="./images/indexImage.png" alt="" />
                 </div>}
             </TrackVisibility>
           </Col>

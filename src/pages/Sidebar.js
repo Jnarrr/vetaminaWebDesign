@@ -36,10 +36,6 @@ const Sidebar = () => {
                 <CDBSidebarMenuItem icon="tools">Services</CDBSidebarMenuItem>
               </NavLink>
 
-              <NavLink exact to="#" style={{fontFamily: 'Poppins', color: 'black'}}>
-                <CDBSidebarMenuItem icon="pen">Reports</CDBSidebarMenuItem>
-              </NavLink>
-
               <NavLink exact to="/welcome" style={{fontFamily: 'Poppins', color: 'red'}}>
                 <CDBSidebarMenuItem icon="arrow-left">Log Out</CDBSidebarMenuItem>
               </NavLink>

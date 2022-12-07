@@ -52,7 +52,7 @@ function AddMedicalRecordVet() {
                     vet_name: '',
                     error_list: [],
                 });
-                history.push('/appointment');
+                history.push('/vetdashboard');
             }
             else if(res.data.status === 422)
             {

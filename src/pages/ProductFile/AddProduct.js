@@ -45,7 +45,7 @@ function AddProduct() {
                     product_description: '',
                     error_list: [],
                 });
-                history.push('/dashboard');
+                history.goBack();
             }
             else if(res.data.status === 422)
             {
@@ -77,7 +77,7 @@ function AddProduct() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Product Price</label>
-                                        <input type="text" name="product_price" onChange={handleInput} value={productInput.product_price}  className="form-control" />
+                                        <input type="number" name="product_price" onChange={handleInput} value={productInput.product_price}  className="form-control" />
                                         <span className="text-danger">{productInput.error_list.product_price}</span>
                                     </div>
                                     <div className="form-group mb-3">
