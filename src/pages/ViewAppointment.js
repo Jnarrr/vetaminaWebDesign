@@ -257,7 +257,7 @@ function ViewAppointment() {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4>Search User
+                                <h4>Search Customer
                                 <div className="col-sm offset-sm">
                                     <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search Customer ID"/>
                                 </div>

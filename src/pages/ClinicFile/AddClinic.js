@@ -135,7 +135,7 @@ function AddClinic() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Registration Number</label>
-                                        <input type="text" name="registration_number" onChange={(e) => setRegistration_number(e.target.value)} className="form-control" />
+                                        <input type="number" name="registration_number" onChange={(e) => setRegistration_number(e.target.value)} className="form-control" />
                                         {/*<span className="text-danger">{clinicInput.error_list.registration_number}</span>*/}
                                     </div>
                                     <div className="form-group mb-3">
@@ -150,7 +150,7 @@ function AddClinic() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Phone Number</label>
-                                        <input type="text" name="phone_number" onChange={(e) => setPhone_number(e.target.value)} className="form-control" />
+                                        <input type="number" name="phone_number" onChange={(e) => setPhone_number(e.target.value)} className="form-control" />
                                         {/*<span className="text-danger">{clinicInput.error_list.phone_number}</span>*/}
                                     </div>
                                     <div className="form-group mb-3">

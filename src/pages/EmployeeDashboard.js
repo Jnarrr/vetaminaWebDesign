@@ -180,7 +180,7 @@ function EmployeeDashboard() {
                                     <thead>
                                         <tr>
                                             <th>Pet ID</th>
-                                            <th>User ID</th>
+                                            <th>Customer ID</th>
                                             <th>Procedures</th>
                                             <th>Date</th>
                                             <th>Time</th>

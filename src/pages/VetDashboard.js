@@ -7,7 +7,6 @@ import Background from './Background';
 function VetDashboard() {
 
     const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([]);
     const [appointments, setAppointments] = useState([]);
     const [medicalrecords, setMedicalRecords] = useState([]);
     const [tablemedicalrecords, setTableMedicalRecords] = useState(null);
@@ -23,14 +22,6 @@ function VetDashboard() {
     }
 
     useEffect(() => {
-
-        axios.get(`/api/products/${user.clinic_id}`).then(res=>{
-            if(res.status === 200)
-            {
-                setProducts(res.data.products)
-                setLoading(false);
-            }
-        });
 
         axios.get(`/api/ClinicAppointments/${user.clinic_id}`).then(res=>{
             if(res.status === 200)
@@ -50,13 +41,13 @@ function VetDashboard() {
 
     }, [user.clinic_id]);
 
-    const deleteProduct = (e, id) => {
+    const deleteAppointment = (e, id) => {
         e.preventDefault();
         
         const thisClicked = e.currentTarget;
         thisClicked.innerText = "Deleting";
 
-        axios.delete(`/api/delete-product/${id}`).then(res=>{
+        axios.delete(`/api/delete-appointment/${id}`).then(res=>{
             if(res.data.status === 200)
             {
                 swal("Deleted!",res.data.message,"success");
@@ -144,24 +135,6 @@ function VetDashboard() {
     }
     else
     {
-        var product_HTMLTABLE = "";
-       
-        product_HTMLTABLE = products.map( (item, index) => {
-            return (
-                
-                <tr key={index}>
-                    <td>{item.product_name}</td>
-                    <td>{item.product_price}</td>
-                    <td>{item.product_description}</td>
-                    <td>
-                        <Link to={`edit-product/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
-                    </td>
-                    <td>
-                        <button type="button" onClick={(e) => deleteProduct(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            );
-        });
 
         var appointment_HTMLTABLE = "";
        
@@ -179,7 +152,7 @@ function VetDashboard() {
                         <Link to={`edit-appointment/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>
                     <td>
-                        <button type="button" onClick={(e) => deleteProduct(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
+                        <button type="button" onClick={(e) => deleteAppointment(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
             );
@@ -207,36 +180,6 @@ function VetDashboard() {
         <div>
             <div className="container">
                 <h2 style={{color: '#2B7A0B', marginLeft: '1%', paddingTop: '3%'}}>Veterinarian logged in as {user.vet_name}</h2>
-                <br></br>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="card-header">
-                                <h4>Products Data
-                                    <Link to={'add-product'} className="btn btn-primary btn-sm float-end"> Add Product</Link>
-                                </h4>
-                            </div>
-                            <div className="card-body">
-                                
-                                <table className="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {product_HTMLTABLE}
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div className="container mt-5">
@@ -313,7 +256,7 @@ function VetDashboard() {
                             <div className="card-header">
                                 <h4>Search Customer
                                 <div className="col-sm offset-sm">
-                                    <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search User ID" />
+                                    <input type='text' onChange={(e)=>userSearch(e.target.value)} className="form-control" placeholder="Search Customer ID" />
                                 </div>
                                 </h4>
                             </div>

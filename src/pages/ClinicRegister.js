@@ -121,6 +121,7 @@ function ClinicRegister() {
                 margin="normal"
                 required
                 fullWidth
+                type='number'
                 label="Registration Number"
                 onChange={(e) => setRegistration_number(e.target.value)}
                 autoFocus
@@ -144,6 +145,7 @@ function ClinicRegister() {
                 margin="normal"
                 required
                 fullWidth
+                type='number'
                 label="Phone Number"
                 onChange={(e) => setPhone_number(e.target.value)}
               />
@@ -159,6 +161,7 @@ function ClinicRegister() {
                 margin="normal"
                 required
                 fullWidth
+                type='email'
                 label="Clinic Email"
                 onChange={(e) => setEmail(e.target.value)}
               />

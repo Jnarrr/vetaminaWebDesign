@@ -124,7 +124,7 @@ function AdminTable() {
                         <div className="card">
                             <div className="card-header">
                                 <h4>Unverified Clinics Data
-                                    <Link to={'add-clinics'} className="btn btn-primary btn-sm float-end"> Add Clinic</Link>
+                                   
                                 </h4>
                             </div>
                             <div className="card-body">
@@ -163,7 +163,7 @@ function AdminTable() {
                         <div className="card">
                             <div className="card-header">
                                 <h4>Verified Clinics Data
-                                    <Link to={'add-clinics'} className="btn btn-primary btn-sm float-end"> Add Clinic</Link>
+                                   
                                 </h4>
                             </div>
                             <div className="card-body">
