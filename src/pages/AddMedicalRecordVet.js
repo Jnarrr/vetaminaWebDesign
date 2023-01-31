@@ -3,18 +3,22 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-function AddMedicalRecordVet() {
+function AddMedicalRecordVet(props) {
 
-    let pet_id = global.key;
+    //let pet_id = global.key;
+    const pet_id = props.match.params.pet_id;
+    console.log(props);
     let user = JSON.parse(localStorage.getItem('user-info'))
     let veterinary = user.vet_name;
     let clinic_id = user.clinic_id;
+    let todayDate = new Date();
+    let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
     
     const history = useHistory();
     const [medicalrecordInput, setMedicalRecord] = useState({
         pet_id: pet_id,
         clinic_id: clinic_id, 
-        Date: '',
+        Date: today,
         Weight: '',
         Against_Manufacturer_LotNo: '',
         vet_name: veterinary,
@@ -83,7 +87,7 @@ function AddMedicalRecordVet() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Date</label>
-                                        <input type="date" name="Date" onChange={handleInput} value={medicalrecordInput.Date}  className="form-control" />
+                                        <input type="text" name="Date" onChange={handleInput} value={medicalrecordInput.Date}  className="form-control" disabled/>
                                         <span className="text-danger">{medicalrecordInput.error_list.Date}</span>
                                     </div>
                                     <div className="form-group mb-3">

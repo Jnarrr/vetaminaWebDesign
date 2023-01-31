@@ -26,6 +26,7 @@ function ClinicRegister() {
     const [email, setEmail] = useState('');
     const [permit, setPermit] = useState('');
     const [verified, setVerified] = useState('false');
+    const [errorList, setError] = useState([]);
 
     const theme = createTheme();
 
@@ -48,21 +49,21 @@ function ClinicRegister() {
         axios.post(`/api/add-clinic`, formData).then(res => {
             if(res.data.status === 200)
             {
-                swal("Success!",res.data.message,"success");
-                setUsername('');
-                setPassword('');
-                setRegistration_number('');
-                setOwner_name('');
-                setClinic_name('');
-                setPhone_number(''); 
-                setAddress('');
-                setEmail('');
-                setPermit('');
-                setVerified('');
-                history.push('/ClinicLogin');
+              swal("Success!",res.data.message,"success");
+              setUsername('');
+              setPassword('');
+              setRegistration_number('');
+              setOwner_name('');
+              setClinic_name('');
+              setPhone_number(''); 
+              setAddress('');
+              setEmail('');
+              setPermit('');
+              setVerified('');
+              history.push('/ClinicLogin');
             }
             else if (res.data.status === 422){
-                alert('All form must be filled')
+              setError(res.data.validate_err)
             }
         });
     }
@@ -108,6 +109,7 @@ function ClinicRegister() {
                 onChange={(e) => setUsername(e.target.value)}
                 autoFocus
               />
+              <small className='text-danger'>{errorList.username}</small>
               <TextField
                 margin="normal"
                 required
@@ -117,6 +119,7 @@ function ClinicRegister() {
                 autoComplete="current-password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <small className='text-danger'>{errorList.password}</small>
               <TextField
                 margin="normal"
                 required
@@ -126,6 +129,7 @@ function ClinicRegister() {
                 onChange={(e) => setRegistration_number(e.target.value)}
                 autoFocus
               />
+              <small className='text-danger'>{errorList.registration_number}</small>
               <TextField
                 margin="normal"
                 required
@@ -133,6 +137,7 @@ function ClinicRegister() {
                 label="Owner Name"
                 onChange={(e) => setOwner_name(e.target.value)}
               />
+              <small className='text-danger'>{errorList.owner_name}</small>
               <TextField
                 margin="normal"
                 required
@@ -141,6 +146,7 @@ function ClinicRegister() {
                 onChange={(e) => setClinic_name(e.target.value)}
                 autoFocus
               />
+              <small className='text-danger'>{errorList.clinic_name}</small>
               <TextField
                 margin="normal"
                 required
@@ -149,6 +155,7 @@ function ClinicRegister() {
                 label="Phone Number"
                 onChange={(e) => setPhone_number(e.target.value)}
               />
+              <small className='text-danger'>{errorList.phone_number}</small>
               <TextField
                 margin="normal"
                 required
@@ -157,6 +164,7 @@ function ClinicRegister() {
                 onChange={(e) => setAddress(e.target.value)}
                 autoFocus
               />
+              <small className='text-danger'>{errorList.address}</small>
               <TextField
                 margin="normal"
                 required
@@ -165,6 +173,7 @@ function ClinicRegister() {
                 label="Clinic Email"
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <small className='text-danger'>{errorList.email}</small>
               <TextField
                 margin="normal"
                 type="file"
@@ -173,6 +182,7 @@ function ClinicRegister() {
                 label="Permit"
                 onChange={(e) => setPermit(e.target.files[0])}
               />
+              <small className='text-danger'>{errorList.permit}</small>
               <Button
                 type='submit'
                 fullWidth

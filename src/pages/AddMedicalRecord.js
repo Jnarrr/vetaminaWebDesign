@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-function AddMedicalRecord() {
+function AddMedicalRecord(props) {
 
-    let pet_id = global.key;
+    const pet_id = props.match.params.pet_id;
+    console.log(props);
+
+    //let pet_id = global.key;
     let clinic_id = global.id;
     let vet_name = global.owner_name;
+    let todayDate = new Date();
+    let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
 
     const history = useHistory();
     const [medicalrecordInput, setMedicalRecord] = useState({
         pet_id: pet_id,
         clinic_id: clinic_id, 
-        Date: '',
+        Date: today,
         Weight: '',
         Against_Manufacturer_LotNo: '',
         vet_name: vet_name,
@@ -37,7 +42,7 @@ function AddMedicalRecord() {
             vet_name:medicalrecordInput.vet_name,
         }
 
-        axios.post(`/api/add-medicalrecord`, data).then(res => {
+        axios.post(`/api/add-medicalrecord/${pet_id}`, data).then(res => {
 
             if(res.data.status === 200)
             {
@@ -82,7 +87,7 @@ function AddMedicalRecord() {
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Date</label>
-                                        <input type="date" name="Date" onChange={handleInput} value={medicalrecordInput.Date}  className="form-control" />
+                                        <input type="text" name="Date" onChange={handleInput} value={medicalrecordInput.Date}  className="form-control" disabled/>
                                         <span className="text-danger">{medicalrecordInput.error_list.Date}</span>
                                     </div>
                                     <div className="form-group mb-3">

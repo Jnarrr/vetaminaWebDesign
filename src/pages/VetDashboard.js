@@ -23,7 +23,15 @@ function VetDashboard() {
 
     useEffect(() => {
 
-        axios.get(`/api/ClinicAppointments/${user.clinic_id}`).then(res=>{
+        /*axios.get(`/api/ClinicAppointments/${user.clinic_id}`).then(res=>{
+            if(res.status === 200)
+            {
+                setAppointments(res.data.appointments)
+                setLoading(false);
+            }
+        });*/
+
+        axios.get(`/api/ApprovedAppointments/${user.clinic_id}`).then(res=>{
             if(res.status === 200)
             {
                 setAppointments(res.data.appointments)
@@ -40,26 +48,6 @@ function VetDashboard() {
         });
 
     }, [user.clinic_id]);
-
-    const deleteAppointment = (e, id) => {
-        e.preventDefault();
-        
-        const thisClicked = e.currentTarget;
-        thisClicked.innerText = "Deleting";
-
-        axios.delete(`/api/delete-appointment/${id}`).then(res=>{
-            if(res.data.status === 200)
-            {
-                swal("Deleted!",res.data.message,"success");
-                thisClicked.closest("tr").remove();
-            }
-            else if(res.data.status === 404)
-            {
-                swal("Error",res.data.message,"error");
-                thisClicked.innerText = "Delete";
-            }
-        });
-    }
 
     const deleteMedicalRecord = (e, id) => {
         e.preventDefault();
@@ -139,24 +127,33 @@ function VetDashboard() {
         var appointment_HTMLTABLE = "";
        
         appointment_HTMLTABLE = appointments.map( (item, index) => {
-            return (
-                
-                <tr key={index}>
-                    <td>{item.pet}</td>
-                    <td>{item.user_id}</td>
-                    <td>{item.procedure}</td>
-                    <td>{item.date}</td>
-                    <td>{item.time}</td>
-                    <td>{item.status}</td>
-                    <td>
-                        <Link to={`edit-appointment/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
-                    </td>
-                    <td>
-                        <button type="button" onClick={(e) => deleteAppointment(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            );
-        });
+            if (item.status === 'Approved'){
+                return (
+                    <tr key={index}>
+                        <td>{item.pet}</td>
+                        <td>{item.user_id}</td>
+                        <td>{item.procedure}</td>
+                        <td>{item.date}</td>
+                        <td>{item.time}</td>
+                        <td>{item.status}</td>
+                        <td>
+                            <Link to={`add-medicalrecordVet/${item.pet}`} className="btn btn-primary btn-sm">Add Medical Record</Link>
+                        </td>
+                    </tr>
+                );
+            }else{
+                return (
+                    <tr key={index}>
+                        <td>{item.pet}</td>
+                        <td>{item.user_id}</td>
+                        <td>{item.procedure}</td>
+                        <td>{item.date}</td>
+                        <td>{item.time}</td>
+                        <td>{item.status}</td>
+                    </tr>
+                );
+            }
+        } );
 
         var customerUsers_HTMLTABLE = "";
        
@@ -200,8 +197,6 @@ function VetDashboard() {
                                             <th>Date</th>
                                             <th>Time</th>
                                             <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -220,7 +215,7 @@ function VetDashboard() {
                         <div className="card">
                             <div className="card-header">
                                 <h4>Medical Records
-                                <Link to={`add-medicalrecordVet`} className="btn btn-primary btn-sm float-end"> Add Medical Record </Link>
+                                {/*<Link to={`add-medicalrecordVet`} className="btn btn-primary btn-sm float-end"> Add Medical Record </Link>*/}
                                 <div className="col-sm offset-sm">
                                     <input type='text' onChange={(e)=>search(e.target.value)} className="form-control" placeholder="Search Pet ID" />
                                 </div>

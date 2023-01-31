@@ -13,6 +13,7 @@ function EditAppointment(props) {
     useEffect(() => {
         
         const appointment_id = props.match.params.id;
+        console.log(props);
         axios.get(`/api/edit-appointment/${appointment_id}`).then( res => {
 
             if(res.data.status === 200)

@@ -131,24 +131,45 @@ function ViewAppointment() {
         var appointments_HTMLTABLE = "";
        
         appointments_HTMLTABLE = appointments.map( (item, index) => {
-            return (
-                
-                <tr key={index}>
-                    <td>{item.pet}</td>
-                    <td>{item.user_id}</td>
-                    <td>{item.procedure}</td>
-                    <td>{item.date}</td>
-                    <td>{item.time}</td>
-                    <td>{item.status}</td>
-                    <td>
-                        <Link to={`edit-appointment/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
-                    </td>
-                    <td>
-                        <button type="button" onClick={(e) => deleteAppointment(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            );
-        });
+            if (item.status === 'Approved'){
+                return (
+                    <tr key={index}>
+                        <td>{item.pet}</td>
+                        <td>{item.user_id}</td>
+                        <td>{item.procedure}</td>
+                        <td>{item.date}</td>
+                        <td>{item.time}</td>
+                        <td>{item.status}</td>
+                        <td>
+                            <Link to={`edit-appointment/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
+                        </td>
+                        <td>
+                            <button type="button" onClick={(e) => deleteAppointment(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                        <td>
+                            <Link to={`add-medicalrecord/${item.pet}`} className="btn btn-primary btn-sm">Add Medical Record</Link>
+                        </td>
+                    </tr>
+                );
+            }else{
+                return (
+                    <tr key={index}>
+                        <td>{item.pet}</td>
+                        <td>{item.user_id}</td>
+                        <td>{item.procedure}</td>
+                        <td>{item.date}</td>
+                        <td>{item.time}</td>
+                        <td>{item.status}</td>
+                        <td>
+                            <Link to={`edit-appointment/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
+                        </td>
+                        <td>
+                            <button type="button" onClick={(e) => deleteAppointment(e, item.id)} className="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                );
+            }
+        } );
 
         var medicalrecords_HTMLTABLE = "";
        
@@ -223,7 +244,7 @@ function ViewAppointment() {
                         <div className="card">
                             <div className="card-header">
                                 <h4>Search Medical Records
-                                <Link to={`add-medicalrecord`} className="btn btn-primary btn-sm float-end"> Add Medical Record </Link>
+                                {/*<Link to={`add-medicalrecord`} className="btn btn-primary btn-sm float-end"> Add Medical Record </Link>*/}
                                 <div className="col-sm offset-sm">
                                     <input type='text' onChange={(e)=>search(e.target.value)} className="form-control" placeholder="Search Pet ID" />
                                 </div>

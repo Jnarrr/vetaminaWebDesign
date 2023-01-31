@@ -93,8 +93,8 @@ function App() {
             <Route path="/ClinicLogin" component={ClinicLogin} />
             <Route path="/ClinicRegister" component={ClinicRegister} />
             <Route path="/appointment" component={ViewAppointment} />
-            <Route path="/add-medicalrecord" component={AddMedicalRecord} />
-            <Route path="/add-medicalrecordVet" component={AddMedicalRecordVet} />
+            <Route path="/add-medicalrecord/:pet_id" component={AddMedicalRecord} />
+            <Route path="/add-medicalrecordVet/:pet_id" component={AddMedicalRecordVet} />
             <Route path="/edit-medicalrecord/:id" component={EditMedicalRecord} />
             <Route path="/edit-appointment/:id" component={EditAppointment} />
 
