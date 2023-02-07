@@ -71,7 +71,7 @@ function VetDashboard() {
 
     async function search(key) {
         console.warn(key)
-        let result = await fetch(`http://localhost:8000/api/search/${key}/${user.clinic_id}`);
+        let result = await fetch(`https://hidden-atoll-34776.herokuapp.com/api/search/${key}/${user.clinic_id}`);
         console.log(result);
         result = await result.json();
         global.key = key;
@@ -98,7 +98,7 @@ function VetDashboard() {
 
     async function userSearch(key2) {
         console.warn(key2)
-        let result2 = await fetch("http://localhost:8000/api/userSearch/"+key2);
+        let result2 = await fetch("https://hidden-atoll-34776.herokuapp.com/api/userSearch/"+key2);
         console.log(result2);
         result2 = await result2.json();
         global.key2 = key2;

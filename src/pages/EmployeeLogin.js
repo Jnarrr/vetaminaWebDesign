@@ -23,7 +23,7 @@ const EmployeeLogin = () =>
     async function login()
     {
         let item={employee_email,employee_password};
-        let result = await fetch("http://localhost:8000/api/employeelogin",{
+        let result = await fetch("https://hidden-atoll-34776.herokuapp.com/api/employeelogin",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

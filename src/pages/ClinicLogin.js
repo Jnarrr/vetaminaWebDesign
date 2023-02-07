@@ -23,7 +23,7 @@ const ClinicLogin = () =>
     async function login()
     {
         let item={username,password};
-        let result = await fetch("http://localhost:8000/api/cliniclogin",{
+        let result = await fetch("https://hidden-atoll-34776.herokuapp.com/api/cliniclogin",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

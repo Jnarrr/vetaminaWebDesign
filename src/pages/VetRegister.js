@@ -14,7 +14,7 @@ const VetSignup = () => {
     let item={name,email,phone_number,password}
     console.warn(item)
     
-    let result = await fetch("http://localhost:8000/api/vetregister",{
+    let result = await fetch("https://hidden-atoll-34776.herokuapp.com/api/vetregister",{
       method:'POST',
       body:JSON.stringify(item),
       headers:{

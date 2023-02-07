@@ -45,7 +45,7 @@ import ProductsData from './pages/ProductsData';
 import ServicesData from './pages/ServicesData';
 
 
-axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.baseURL = "https://hidden-atoll-34776.herokuapp.com/";
 
 function App() {
   return (

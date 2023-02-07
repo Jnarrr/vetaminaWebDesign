@@ -78,7 +78,7 @@ function AdminTable() {
                     <td>{item.phone_number}</td>
                     <td>{item.address}</td>
                     <td>{item.email}</td>
-                    <td><img src={ "http://localhost:8000/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
+                    <td><img src={ "https://hidden-atoll-34776.herokuapp.com/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
                     <td>
                         <Link to={`edit-clinic/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>
@@ -102,7 +102,7 @@ function AdminTable() {
                     <td>{item.phone_number}</td>
                     <td>{item.address}</td>
                     <td>{item.email}</td>
-                    <td><img src={ "http://localhost:8000/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
+                    <td><img src={ "https://hidden-atoll-34776.herokuapp.com/" + item.permit } className="img-fluid img-bordered" width="200px" alt='alternative'/></td>
                     <td>
                         <Link to={`edit-clinic/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>

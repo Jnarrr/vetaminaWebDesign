@@ -77,7 +77,7 @@ function ViewAppointment() {
     async function search(key) {
         let user = JSON.parse(localStorage.getItem('user-info'));
         console.warn(key)
-        let result = await fetch(`http://localhost:8000/api/search/${key}/${user.id}`);
+        let result = await fetch(`https://hidden-atoll-34776.herokuapp.com/api/search/${key}/${user.id}`);
         console.log(result);
         result = await result.json();
         global.key = key;
@@ -104,7 +104,7 @@ function ViewAppointment() {
 
     async function userSearch(key2) {
         console.warn(key2)
-        let result2 = await fetch("http://localhost:8000/api/userSearch/"+key2);
+        let result2 = await fetch("https://hidden-atoll-34776.herokuapp.com/api/userSearch/"+key2);
         console.log(result2);
         result2 = await result2.json();
         global.key2 = key2;

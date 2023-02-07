@@ -95,7 +95,7 @@ function EditClinic(props) {
                                 <form onSubmit={updateClinic} >
                                     <div className="form-group mb-3">
                                         <label>Permit</label> <br/>
-                                        <img src={ "http://localhost:8000/" + clinicInput.permit } className="img-fluid img-bordered" width="400px" alt='alternative'/>
+                                        <img src={ "https://hidden-atoll-34776.herokuapp.com/" + clinicInput.permit } className="img-fluid img-bordered" width="400px" alt='alternative'/>
                                         {/*<span className="text-danger">{clinicInput.error_list.permit}</span>*/}
                                     </div>
                                     <div className="form-group mb-3">
